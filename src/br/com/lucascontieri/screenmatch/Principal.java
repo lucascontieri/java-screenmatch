@@ -1,6 +1,8 @@
 package br.com.lucascontieri.screenmatch;
 
 import br.com.lucascontieri.screenmatch.calculator.CalculadoraDeTempo;
+import br.com.lucascontieri.screenmatch.calculator.FiltroRecomendacao;
+import br.com.lucascontieri.screenmatch.model.Episodio;
 import br.com.lucascontieri.screenmatch.model.Filme;
 import br.com.lucascontieri.screenmatch.model.Serie;
 
@@ -34,7 +36,7 @@ public class Principal {
         theLastOfUs.setMinutosPorEpisodio(60);
         System.out.println("Tempo de maratona da série: " + theLastOfUs.getDuracaoEmMinutos());
 
-        // Instnacinado outro objeto da classe Filme
+        // Instanciando outro objeto da classe Filme
         Filme meuFilme02 = new Filme();
         meuFilme02.setNome("Homem Aranha");
         meuFilme02.setAnoDeLancamento(2010);
@@ -47,5 +49,15 @@ public class Principal {
         calculadora.inclui(meuFilme02);
         calculadora.inclui(theLastOfUs);
         System.out.println("A duração total em minutos é: " + calculadora.getTempoTotal());
+
+        // Utilizando o filtro de recomendacao
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(theLastOfUs);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
     }
 }
