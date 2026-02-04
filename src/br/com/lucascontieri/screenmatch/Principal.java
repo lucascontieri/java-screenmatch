@@ -6,10 +6,13 @@ import br.com.lucascontieri.screenmatch.model.Episodio;
 import br.com.lucascontieri.screenmatch.model.Filme;
 import br.com.lucascontieri.screenmatch.model.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
 
+        //Instanciando a classe Filme
+        Filme meuFilme = new Filme();
         meuFilme.setNome("O Poderoso Chefão");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
@@ -24,8 +27,6 @@ public class Principal {
         //meuFilme.somaDasAvaliacoes = 10;
         //meuFilme.totalDeAvaliacoes = 1;
         //System.out.println(meuFilme.calculaMedia());
-
-        System.out.println();
 
         Serie theLastOfUs = new Serie();
         theLastOfUs.setNome("The Last of Us");
@@ -59,5 +60,22 @@ public class Principal {
         episodio.setSerie(theLastOfUs);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        var meuFilme03 = new Filme();
+        meuFilme03.setNome("Até o Último Homem");
+        meuFilme03.setAnoDeLancamento(2016);
+        meuFilme03.setDuracaoEmMinutos(139);
+        meuFilme03.avalia(9.5);
+
+        // Criando uma lista de filmes
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(meuFilme02);
+        listaDeFilmes.add(meuFilme03);
+
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println("Lista de filmes: " + listaDeFilmes);
     }
 }
